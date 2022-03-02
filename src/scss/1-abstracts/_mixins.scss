@@ -1,0 +1,32 @@
+@use "sass:map";
+@use "sass:math";
+
+$breakpoints: (
+	"s": 320px,
+	"m": 480px,
+	// "m": 540px,
+	"tablet": 768px,
+	"laptop": 1024px,
+	"desktop": 1144px,
+	"l": 1400px,
+);
+
+@mixin mq($breakpoint) {
+	// Es wird gecheckt ob der Wert in der Sass Map vorhanden ist
+	@if map.has-key($breakpoints, $breakpoint) {
+		// Ausgabe
+		@media screen and (min-width: #{map.get($breakpoints, $breakpoint)}) {
+			@content;
+		}
+	}
+
+	// Wenn ihr oben einen Wert eingetragen habt wird hier gecheckt ob ihr einen Einheit angehängt habt. Falls nicht wird px genutzt.
+	@else if math.is-unitless($breakpoint) {
+		$breakpoint: $breakpoint + 0px;
+
+		// Ausgabe
+		@media screen and (min-width: $breakpoint) {
+			@content;
+		}
+	}
+}
