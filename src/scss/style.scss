@@ -1,22 +1,6 @@
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
-
-@use "1-abstracts/variables";
-@use "1-abstracts/mixins";
-
 @use "2-vendors/tailwind";
 
-@use "3-base/normalize";
-@use "3-base/reset";
-@use "3-base/typography";
-
-@use "4-layout/navigation";
-@use "4-layout/grid";
-@use "4-layout/header";
-@use "4-layout/footer";
-@use "4-layout/forms";
-
-@use "5-components/buttons";
-
-// @use "6-pages/";
+.custom-card-image .card.image-full::before {
+	border-radius: 0.5rem;
+	opacity: 0.45;
+}
